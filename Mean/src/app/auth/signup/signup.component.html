@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-spinner *ngIf = "isLoading"></mat-spinner>
+  <form  (submit) ="onSignup(signupform)" #signupform="ngForm" *ngIf = "!isLoading">
+    <mat-form-field>
+      <input matInput type="email"
+      name="email" ngModel placeholder="E-mail" #emailInput = "ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Please Enter a valid E-mail.</mat-error>
+      <!-- [(ngModel)]="enteredTitle"  -->
+
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" ngModel #passsInput="ngModel" required>
+      <mat-error *ngIf="passsInput.invalid">Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters</mat-error>
+      <!-- [(ngModel)]="enteredContent"  -->
+    </mat-form-field>
+   <button mat-raised-button type="submit" color="accent" *ngIf ="!isLoading">Signup</button>
+
+  </form>
+
+</mat-card>
+
+
+
+
+
+<!-- <p>{{ newpost}}</p> -->
